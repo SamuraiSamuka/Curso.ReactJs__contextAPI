@@ -7,9 +7,9 @@
 | :link: Bibliotecas          | ContextAPI, React-router-dom, material-ui
 | :rocket: Deploy             | [Resultado final](https://curso-react-js-context-api.vercel.app/)
 | :fire: Cursos               | [React: Estados globais com ContextAPI](https://cursos.alura.com.br/course/react-context-estados-globais-contextapi)
-| :mortar_board: Certificados | [Ainda não concluído]()
+| :mortar_board: Certificados | [Acesse o certificado](https://cursos.alura.com.br/user/samurai-samuka/course/react-context-estados-globais-contextapi/certificate)
 
-![](./print.png#vitrinedev)
+![](./public/print.png#vitrinedev)
 
 ## Conceitos aprendidos
 * Como usar a context-api para criar contextos globais;
