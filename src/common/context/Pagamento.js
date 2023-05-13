@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useContext } from "react";
 
 export const PagamentoContext = createContext();
 PagamentoContext.displayName = "Pagamento";
@@ -10,7 +10,7 @@ export const PagamentoProvider = ({children}) => {
         id: 1
     }, {
         nome: "cartão de crédito",
-        juros: 1.05,
+        juros: 1.1,
         id: 2
     }, {
         nome: "pix",
@@ -18,11 +18,12 @@ export const PagamentoProvider = ({children}) => {
         id: 3
     }, {
         nome: "crediário",
-        juros: 1.1,
+        juros: 1.25,
         id: 4
     }]
 
     const [formaPagamento, setFormaPagamento] = useState(tiposPagamento[0]);
+    
     return (
         <PagamentoContext.Provider value={{
             tiposPagamento,
@@ -32,4 +33,24 @@ export const PagamentoProvider = ({children}) => {
             {children}
         </PagamentoContext.Provider>
     )
+}
+
+export const usePagamentoContext = () => {
+    const {
+        formaPagamento, 
+        setFormaPagamento, 
+        tiposPagamento} = useContext(PagamentoContext);
+
+        console.log(formaPagamento.id)
+    function mudarFormaPagamento(id) {
+        const pagamentoAtual = tiposPagamento.find(pagamento => pagamento.id === id)
+
+        setFormaPagamento(pagamentoAtual);
+    }
+
+    return {
+        tiposPagamento,
+        formaPagamento,
+        mudarFormaPagamento
+    }
 }
